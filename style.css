@@ -1,0 +1,222 @@
+/* ===========================
+   Palette & base
+   =========================== */
+:root{
+  --bg:#FFF5F7;        /* very light pink */
+  --card:#FFF9F1;      /* cream card */
+  --accent:#FF7AA2;    /* soft pink accent */
+  --accent-2:#FFDDE6;  /* lighter pink */
+  --text:#3b2b30;
+  --muted:#6f6b6c;
+  --glass: rgba(255,255,255,0.7);
+  --shadow: 0 10px 30px rgba(60,20,30,0.06);
+  --radius:14px;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background: linear-gradient(180deg,var(--bg),#ffffff);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+  padding:20px;
+}
+
+.container{max-width:1100px;margin:0 auto;}
+
+/* Header / hero */
+header{
+  display:flex;
+  gap:18px;
+  align-items:center;
+  margin-bottom:18px;
+}
+.logo img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.logo span{font-weight:800;color:#611b2b;font-size:22px;letter-spacing:1px}
+.hero-title{
+  flex:1;
+}
+.hero-title h1{margin:0;font-size:22px;color:#6a2030;letter-spacing:0.2px;}
+.hero-title p{margin:8px 0 0 0;color:var(--muted);font-size:15px;max-width:720px}
+
+.cta-row{margin-top:12px;display:flex;gap:10px}
+.btn{
+  background:var(--accent);
+  color:#fff;padding:10px 14px;border-radius:12px;border:none;cursor:pointer;font-weight:700;
+  box-shadow:0 8px 20px rgba(255,122,162,0.12);
+}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(255,122,162,0.12);}
+
+/* layout */
+.grid{
+  display:grid;
+  grid-template-columns: 1fr 360px;
+  gap:20px;
+  align-items:start;
+}
+
+main{
+  background:transparent;
+}
+
+aside{
+  position:sticky;top:18px;
+}
+
+/* card / sections */
+.section{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:16px;
+  margin-bottom:16px;
+  box-shadow:var(--shadow);
+  border:1px solid rgba(0,0,0,0.03);
+}
+h2{margin:0 0 10px 0;color:#6a2030}
+p.lead{margin:0;color:var(--muted);font-size:14px}
+
+/* Self-care Wheel */
+.wheel-wrap{
+  display:flex;gap:16px;align-items:center;flex-wrap:wrap;
+  justify-content:center;
+}
+.wheel{
+  width:320px;height:320px;border-radius:50%;
+  background:conic-gradient(
+    #FFEBF1 0 72deg,
+    #FFF5EA 72deg 144deg,
+    #FFF8F1 144deg 216deg,
+    #FFF1F4 216deg 288deg,
+    #FFF7EE 288deg 360deg
+  );
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 18px 40px rgba(80,30,50,0.06);
+  transition:transform .45s cubic-bezier(.2,.9,.2,1);
+  cursor:pointer;
+}
+.wheel:hover{transform:scale(1.02)}
+.wheel-center{
+  width:120px;height:120px;border-radius:50%;
+  background:linear-gradient(180deg,#fff,#FFF9F1);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;
+  text-align:center;padding:8px;
+  box-shadow:0 8px 20px rgba(90,30,40,0.06);
+  border:1px solid rgba(0,0,0,0.02);
+}
+.wheel-center strong{display:block;color:#6a2030}
+.wheel-legend{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:8px;width:360px;
+}
+.legend-item{
+  display:flex;gap:8px;align-items:center;padding:8px;border-radius:10px;background:rgba(255,255,255,0.7);
+  transition:transform .18s;cursor:pointer;border:1px solid rgba(0,0,0,0.03);
+}
+.legend-item:hover{transform:translateY(-6px)}
+.dot{width:14px;height:14px;border-radius:4px;background:#ffd3e0;flex:0 0 14px}
+
+/* wheel overlay labels */
+.wheel-label{
+  position:absolute;
+  background:rgba(255,255,255,0.85);
+  padding:6px 8px;border-radius:8px;
+  font-weight:700;font-size:13px;color:#6a2030;
+  display:flex;align-items:center;gap:8px;border:1px solid rgba(0,0,0,0.04);
+  cursor:pointer; user-select:none;
+  box-shadow:0 8px 18px rgba(80,30,50,0.06);
+  transition:transform .14s;
+  text-align:center;
+  white-space:nowrap;
+}
+.wheel-label:hover{transform:translateY(-6px)}
+.label-mental{
+  top: 18%; 
+  left: 65%;
+  transform: translate(-30%, 0);
+}
+.label-physical{
+  top: 60%;
+  right: 7%;
+  transform: translate(0, -50%);
+}
+.label-emotional{
+  bottom: 10%;
+  right: 35%;
+  transform: translate(0, 0);
+}
+.label-social{
+  bottom: 35%;
+  left: 10%;
+  transform: translate(0, 0);
+}
+.label-spiritual{
+  top: 22%;
+  left: 18%;
+  transform: translate(0, -50%);
+}
+
+/* details panel */
+.details{
+  margin-top:12px;padding:12px;border-radius:10px;background:linear-gradient(180deg,#fff,#fff8fb);
+  border:1px dashed rgba(0,0,0,0.04);
+}
+
+/* quick suggestion */
+.suggestion-box{display:flex;gap:10px;align-items:center}
+.suggestion-text{padding:10px;border-radius:10px;background:#fff;border:1px solid rgba(0,0,0,0.04);flex:1}
+.history{font-size:13px;color:var(--muted);margin-top:8px}
+
+/* mood tracker */
+.mood-row{display:flex;gap:10px;align-items:center}
+.mood-btn{font-size:26px;padding:8px;border-radius:10px;border:none;background:transparent;cursor:pointer;transition:transform .12s}
+.mood-btn:hover{transform:translateY(-6px)}
+.mood-btn.active{box-shadow:0 12px 28px rgba(120,60,80,0.12);background:linear-gradient(180deg,#fff,#fff8fb)}
+
+.mood-history{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.mood-dot{width:12px;height:12px;border-radius:50%}
+
+/* checklist */
+.checklist{display:grid;gap:8px;margin-top:8px}
+.check-item{display:flex;gap:10px;align-items:center;padding:10px;border-radius:10px;background:linear-gradient(180deg,#fff,#fff9f6);border:1px solid rgba(0,0,0,0.03)}
+.check-item input{transform:scale(1.2);accent-color:var(--accent)}
+
+.check-actions{display:flex;gap:8px;margin-top:12px}
+
+/* feedback form */
+.feedback-form input,.feedback-form select,.feedback-form textarea{
+  width:100%;padding:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);font-size:14px;
+}
+
+/* footer & small */
+.small{font-size:13px;color:var(--muted)}
+footer{margin-top:20px;text-align:center;color:var(--muted);font-size:13px}
+
+/* animations */
+.fade-in{animation:fadeIn .6s ease both}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* responsive */
+@media (max-width:980px){
+  .grid{grid-template-columns:1fr}
+  .wheel{width:280px;height:280px}
+  .wheel-center{width:110px;height:110px}
+  .hero-title p{max-width:100%}
+  .label-mental{top:6%}
+  .label-physical{top:28%;right:4%}
+  .label-spiritual{top:28%;left:4%}
+}
+
+@media print{
+  body{padding:0}
+  header, .btn, aside, .wheel, .legend-item{display:none}
+  .section{box-shadow:none;border:none}
+}
